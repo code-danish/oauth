@@ -4,10 +4,7 @@ const DBHelper = () => {
   const uri = process.env.MONGODB_URI;
   const apiKey = "<api-key>";
 
-  const client = new MongoClient(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
+  const client = new MongoClient(uri, {});
 
   async function connectToMongoDB() {
     try {
