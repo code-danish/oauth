@@ -42,6 +42,7 @@ export default function Home() {
     <main className={`min-h-screen`}>
       <div className="flex flex-col justify-center items-center text-stone-300 h-screen">
         <div className="flex-grow flex justify-center items-center flex-col">
+        Test Build 1.0<br></br>
           {ui}
           <button
             className="border border-stone-300 border-4 py-2 px-6 rounded rounded-full"
