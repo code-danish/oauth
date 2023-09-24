@@ -20,11 +20,14 @@ const UserRepo = () => {
                 await client.connect();
                 const db = client.db(OAUTH_DB);
                 let existingUserByEmail = await db.collection(candidateCollection).findOne({email:user.email})
-                if(!existingUserByEmail){
-                    result = await db
+                // if(!existingUserByEmail){
+                //     result = await db
+                //     .collection(candidateCollection)
+                //     .insertOne(user);
+                // }
+                result = await db
                     .collection(candidateCollection)
                     .insertOne(user);
-                }
                 
             } catch (e) {
                 reject(e);
