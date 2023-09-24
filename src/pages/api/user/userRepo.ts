@@ -2,7 +2,7 @@ import { MongoClient, ServerApiVersion } from 'mongodb';
 import { DefaultSession, User } from 'next-auth';
 const UserRepo = () => {
     const uri =process.env.MONGODB_URI||"";
-    const RESUME_DB = 'oauthDb';
+    const OAUTH_DB = process.env.DB_NAME;
     const candidateCollection = 'user';
     // Create a MongoClient with a MongoClientOptions object to set the Stable API version
     const client = new MongoClient(uri, {
@@ -18,7 +18,7 @@ const UserRepo = () => {
             let result = null;
             try {
                 await client.connect();
-                const db = client.db(RESUME_DB);
+                const db = client.db(OAUTH_DB);
                 let existingUserByEmail = await db.collection(candidateCollection).findOne({email:user.email})
                 if(!existingUserByEmail){
                     result = await db

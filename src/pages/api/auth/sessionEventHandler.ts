@@ -7,6 +7,8 @@ import SessionRepo from "../session/sessionRepo";
 export const signInEventHandler = (user: User) =>{
 	let userRepo = UserRepo();
 	let sessionRepo = SessionRepo();
+	console.log('saving user details');
+	sessionRepo.testConnection();
 	// userRepo.saveDetails(user);
 	submitUser(user);
 	sessionRepo.saveDetails({
@@ -19,6 +21,7 @@ export const signInEventHandler = (user: User) =>{
 
 export const signOutHandler = ({name, email}:any) =>{
 	let sessionRepo = SessionRepo();
+	sessionRepo.testConnection();
 	sessionRepo.saveDetails({
 		email: email || "N/A",
 		name: name|| "N/A",

@@ -10,7 +10,7 @@ export interface ISession{
 
 const SessionRepo = () => {
     const uri = process.env.MONGODB_URI||"";
-    const RESUME_DB = 'oauthDb';
+    const OAUTH_DB = process.env.DB_NAME;
     const sessionCollection = 'session';
     // Create a MongoClient with a MongoClientOptions object to set the Stable API version
     const client = new MongoClient(uri, {
@@ -26,7 +26,7 @@ const SessionRepo = () => {
             let result = null;
             try {
                 await client.connect();
-                const db = client.db(RESUME_DB);
+                const db = client.db(OAUTH_DB);
                 result = await db
                     .collection(sessionCollection)
                     .insertOne(session);
@@ -46,7 +46,7 @@ const SessionRepo = () => {
             // Send a ping to confirm a successful connection
             await client.db('admin').command({ ping: 1 });
             console.log(
-                'Pinged your deployment. You successfully connected to MongoDB!',
+                'Session Repo Up',
             );
         } finally {
             // Ensures that the client will close when you finish/error
