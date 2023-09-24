@@ -9,7 +9,7 @@ export interface ISession{
 }
 
 const SessionRepo = () => {
-    const uri = process.env.DB_URL||"";
+    const uri = process.env.MONGODB_URI||"";
     const RESUME_DB = 'oauthDb';
     const sessionCollection = 'session';
     // Create a MongoClient with a MongoClientOptions object to set the Stable API version

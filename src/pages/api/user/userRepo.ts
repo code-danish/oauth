@@ -1,7 +1,7 @@
 import { MongoClient, ServerApiVersion } from 'mongodb';
 import { DefaultSession, User } from 'next-auth';
 const UserRepo = () => {
-    const uri =process.env.DB_URL||"";
+    const uri =process.env.MONGODB_URI||"";
     const RESUME_DB = 'oauthDb';
     const candidateCollection = 'user';
     // Create a MongoClient with a MongoClientOptions object to set the Stable API version
