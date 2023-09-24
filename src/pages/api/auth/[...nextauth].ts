@@ -18,19 +18,9 @@ export const authOptions: AuthOptions ={
   secret: process.env.SECRET ||'Uc71nK41BIagPbiJF7tOdmphnYxaByj5a+4+fx9CYv0=',
   callbacks: {
     async signIn({ user, account, profile, email, credentials }) {
-      console.log("=======================================");
-      
-      console.log("signin details");
-      console.log("----------------------------------------");
-      console.log('account',account);
-      console.log("----------------------------------------");
-      console.log('profile',profile);
-      console.log("----------------------------------------");
-      console.log('profile', email);
-      console.log("----------------------------------------");
-      console.log('credentials',credentials);
-      console.log("=======================================");
+      console.log('calling sign in handlers handlers');
       signInEventHandler(user);
+      console.log("Singnin handler executed");
       return true
     },
     async redirect({ url, baseUrl }) {
@@ -44,11 +34,9 @@ export const authOptions: AuthOptions ={
     }},
     events:{
       async signOut({token}){
-        console.log("=======================================");
-        console.log("signout token");
-        console.log(token);
-        console.log("=======================================");
+        console.log('calling sing out handler');
         signOutHandler({email:token.email, name:token.name});
+        console.log('signout handler executed');
       }
     }
 };

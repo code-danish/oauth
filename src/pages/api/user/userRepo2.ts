@@ -13,7 +13,7 @@ const UserRepo2 = ()=>{
 		return result;
 		}
 		catch(e){
-			console.log('Something went wrong, while saving user !!', e);
+			console.error('Error saving user !!', e);
 		}
 	}
 	return{saveUser};
