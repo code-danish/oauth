@@ -19,6 +19,7 @@ export const authOptions: AuthOptions ={
   callbacks: {
     async signIn({ user, account, profile, email, credentials }) {
       console.log("=======================================");
+      
       console.log("signin details");
       console.log("----------------------------------------");
       console.log('account',account);
