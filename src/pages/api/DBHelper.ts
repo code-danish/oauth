@@ -5,21 +5,24 @@ const DBHelper = () => {
   const apiKey = "<api-key>";
 
   const client = new MongoClient(uri, {});
-
+  let dbClient:any;
   async function connectToMongoDB() {
     try {
       await client.connect();
+	  dbClient = await client.db(process.env.DB_NAME || "oauthDefaultDB")
       console.log("Connected to MongoDB");
     } catch (error) {
       console.error("Error connecting to MongoDB:", error);
     }
   }
 
+    //lets connect to Db
+	connectToMongoDB();
+
   function getDB() {
-    return client.db(process.env.DB_NAME || "oauthDefaultDB");
+    return dbClient;
   }
-  //lets connect to Db
-  connectToMongoDB();
+
   return { getDB };
 }
 
