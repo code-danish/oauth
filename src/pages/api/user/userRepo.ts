@@ -32,7 +32,7 @@ const UserRepo = () => {
             } catch (e) {
                 reject(e);
             } finally {
-                await client.close();
+                // await client.close();
             }
             if (result) resolve(result.insertedId.toString());
         });
@@ -49,7 +49,7 @@ const UserRepo = () => {
             );
         } finally {
             // Ensures that the client will close when you finish/error
-            await client.close();
+            // await client.close();
         }
     }
     return { saveDetails, testConnection };
