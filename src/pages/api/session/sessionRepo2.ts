@@ -2,7 +2,7 @@ import DBHelper from "../DBHelper";
 
 const SessionRepo2 = () => {
   async function saveSession(session: any) {
-    const db = DBHelper().getDB();
+    const db = await DBHelper().getDB();
     const sessionDB = db.collection("sessionRep");
 
     try {

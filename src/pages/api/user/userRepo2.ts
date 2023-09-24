@@ -3,9 +3,9 @@ import DBHelper from "../DBHelper";
 import { stdout } from "process";
 
 const UserRepo2 = () => {
-  const db = DBHelper().getDB();
-  const userCollection = db.collection("userRep");
   async function saveUser(user: User) {
+    const db = await DBHelper().getDB();
+    const userCollection = db.collection("userRep");
     try {
       console.log("Saving User To DB");
       const result = await userCollection.insertOne(user);

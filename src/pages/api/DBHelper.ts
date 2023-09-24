@@ -17,9 +17,12 @@ const DBHelper = () => {
   }
 
     //lets connect to Db
-	connectToMongoDB();
+	
 
-  function getDB() {
+  async function getDB() {
+	if(!dbClient){
+		await connectToMongoDB();
+	}
     return dbClient;
   }
 
