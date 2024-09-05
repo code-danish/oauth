@@ -1,8 +1,16 @@
+import Image from 'next/image';
+import { Inter } from 'next/font/google';
 import { signIn, signOut, useSession } from 'next-auth/react';
+import submitUser from './utility/submitUser';
+import { useState } from 'react';
+import submitSession from './utility/submitSession';
+
+const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
   const { data, status } = useSession();
   let button = <></>;
+  let detail = <></>;
   switch (status) {
     case 'loading':
       button = (
