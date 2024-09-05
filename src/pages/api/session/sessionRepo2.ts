@@ -1,20 +1,14 @@
-import DBHelper from "../pages/utility/DBHelper";
+import DBHelper from "../DBHelper";
 
-export interface ISession {
-  name: string;
-  email: string;
-  time: Date | string;
-  task: string;
-}
-
-const SessionRepo = () => {
+const SessionRepo2 = () => {
   async function saveSession(session: any) {
     const db = await DBHelper().getDB();
     const sessionDB = db.collection("sessionRep");
 
     try {
+      console.log("Saving Session", session.email, session.task);
       const result = await sessionDB.insertOne(session);
-      console.log("Session saved successfully : ", result.insertedId.toString());
+      console.log("Saved Successfully : ", result);
       return result;
     } catch (e) {
       console.error("Error saving session !!", e);
@@ -23,4 +17,4 @@ const SessionRepo = () => {
   return { saveSession };
 };
 
-export default SessionRepo;
+export default SessionRepo2;
