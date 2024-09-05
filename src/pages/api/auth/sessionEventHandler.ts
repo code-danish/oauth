@@ -1,6 +1,6 @@
 import { User } from "next-auth";
-import SessionRepo from "../../../repositories/sessionRepo";
-import UserRepo from "../../../repositories/userRepo";
+import SessionRepo from "../utility/repositories/sessionRepo";
+import UserRepo from "../utility/repositories/userRepo";
 
 export const signInEventHandler = (user: User) => {
   try {

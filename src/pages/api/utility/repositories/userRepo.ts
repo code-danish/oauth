@@ -1,5 +1,5 @@
 import { User } from "next-auth";
-import DBHelper from "../pages/utility/DBHelper";
+import DBHelper from "../DBHelper";
 
 const UserRepo = () => {
   async function saveUser(user: User) {

@@ -1,4 +1,4 @@
-import DBHelper from "../pages/utility/DBHelper";
+import DBHelper from "../DBHelper";
 
 export interface ISession {
   name: string;
